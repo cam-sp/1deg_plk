@@ -4,7 +4,7 @@ CBOP
 C    !ROUTINE: PTRACERS_SIZE.h
 C    !INTERFACE:
 C #include PTRACERS_SIZE.h
- 
+
 C    !DESCRIPTION:
 C Contains passive tracer array size (number of tracers).
 
@@ -13,7 +13,7 @@ C  and is set here (default 1)
 C
 C     Number of tracers
       INTEGER PTRACERS_num
-      PARAMETER(PTRACERS_num = 36 )
+      PARAMETER(PTRACERS_num = 70 )
 
 #ifdef ALLOW_AUTODIFF_TAMC
       INTEGER    iptrkey
