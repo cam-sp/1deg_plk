@@ -36,6 +36,8 @@ C enable a dynamic CDOM tracer
 C enable air-sea carbon exchange and Alk and O2 tracers
 #define DARWIN_ALLOW_CARBON
 
+#define DARWIN_CDOM_UNITS_CARBON
+
 
 C optional bits
 

@@ -129,7 +129,7 @@
  diaz_ini_fac= 0.1,
  darwin_seed= 56,
  tempCoeffArr= 1.0,
- PARmin= 1E-5,
+ PARmin= 0.0,
  alpfe= 1.0,
  freefemax = .1E-3,
  depthfesed= 7000.,
@@ -200,7 +200,7 @@
  grp_names= 'Pro', 'Syn', 'PicoEuk', 'Cocco', 'Diazo', 'Tricho', 'Diatom', 'Dino', 'Zoo','Bact'
 #
 #                        P  S  s  C  z, T,  D   l  Z    b
- grp_nplank(:)=          1, 1, 2, 3, 2, 1,  5,  4, 9,   2
+ grp_nplank(:)=          1, 1, 4, 3, 2, 1,  5,  4, 9,   2
  grp_photo(:)=           1, 1, 1, 1, 1, 1,  1,  1, 0,   0
  grp_pred(:)=            0, 0, 0, 0, 0, 0,  0,  1, 1,   0
  grp_prey(:)=            1, 1, 1, 1, 1, 1,  1,  1, 1,   1
@@ -226,7 +226,7 @@
  a_phytoTempAe=2*0.0758, 0.0635, 0.0353, 2*0.0575, 0.0438, 0.0512,
 
  a_mQyield(:)= 8*4E-5,
- a_chl2cmax(:)=  6*.2, .3, .2,
+ a_chl2cmax(:)= 2*0.07, 0.1, 3*0.07, .3, .04,
  a_acclimtimescl(:)= 8*5.7870370370370370E-6,
  logvolbase= -0.9000, -0.3870, 0.1260, 1.1520, 1.1520, 3.2040, 1.1520, 2.1780, 1.1520, -1.4130,
  logvolinc= 0.513, 0.513, 1.026, 1.026, 1.026, 0.513, 1.026, 1.026, 1.026, 0.513,
@@ -256,16 +256,18 @@
 #
  grp_ExportFracPreyPred(1:8,9)= 8*.8,
  a_R_ChlC(9)= 0.,
- a_grazemax(9)= 3.4722000000000000E-05,  ! prowe values
- b_grazemax(9)= -0.16,
+ a_grazemax(8)= 1.0E-04,
+ b_grazemax(8)= -0.2,
+ a_grazemax(9)= 2.3150000000000000E-04,  ! prowe values
+ b_grazemax(9)= -0.2,
 #
  a_phytoTempExp2= 8*.0003,
  a_R_PC(:)= 10*0.008333333333333333,
  a_R_FeC(:)= 4*0.008333333333333333E-3, 2*0.03333333333333333E-3, 2*0.008333333333333333E-3, 2*0.008333333333333333E-3,
  a_R_NC(:)= 4*0.13333333333333333, 2*0.1333333333333333, 4*0.13333333333333333,
  a_R_SiC(:)= 6*0., 0.39999999999999999, 3*0.,
- a_kgrazesat(:)= 8*5.0, 1*5.0,
- b_kgrazesat(:)= 9*0,
+ a_kgrazesat(:)= 8*10.0, 1*10.0,
+ b_kgrazesat(:)= 9*-0.1,
 #
  grp_ass_eff(:,:)=100*0.32,
  /

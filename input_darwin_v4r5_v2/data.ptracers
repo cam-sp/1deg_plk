@@ -1,13 +1,13 @@
  &PTRACERS_PARM01
- PTRACERS_numInUse= 69,
+ PTRACERS_numInUse= 73,
  PTRACERS_Iter0= 2,
 #
- PTRACERS_advScheme(:)= 69*33,
- PTRACERS_diffKh(:)= 69*0.E3,
- PTRACERS_diffKr(:)= 69*1.E-5,
- PTRACERS_useGMRedi(:)= 69*.TRUE.,
+ PTRACERS_advScheme(:)= 73*33,
+ PTRACERS_diffKh(:)= 73*0.E3,
+ PTRACERS_diffKr(:)= 73*1.E-5,
+ PTRACERS_useGMRedi(:)= 73*.TRUE.,
 #
- PTRACERS_EvPrRn(:)= 69*0.E3,
+ PTRACERS_EvPrRn(:)= 73*0.E3,
 #
  PTRACERS_names(  1)= 'DIC',
  PTRACERS_names(  2)= 'NO3',
@@ -59,25 +59,29 @@
  PTRACERS_names( 48)= 'c28',
  PTRACERS_names( 49)= 'c29',
  PTRACERS_names( 50)= 'c30',
- PTRACERS_names( 51)= 'Chl01',
- PTRACERS_names( 52)= 'Chl02',
- PTRACERS_names( 53)= 'Chl03',
- PTRACERS_names( 54)= 'Chl04',
- PTRACERS_names( 55)= 'Chl05',
- PTRACERS_names( 56)= 'Chl06',
- PTRACERS_names( 57)= 'Chl07',
- PTRACERS_names( 58)= 'Chl08',
- PTRACERS_names( 59)= 'Chl09',
- PTRACERS_names( 60)= 'Chl10',
- PTRACERS_names( 61)= 'Chl11',
- PTRACERS_names( 62)= 'Chl12',
- PTRACERS_names( 63)= 'Chl13',
- PTRACERS_names( 64)= 'Chl14',
- PTRACERS_names( 65)= 'Chl15',
- PTRACERS_names( 66)= 'Chl16',
- PTRACERS_names( 67)= 'Chl17',
- PTRACERS_names( 68)= 'Chl18',
- PTRACERS_names( 69)= 'Chl19',
+ PTRACERS_names( 51)= 'c31',
+ PTRACERS_names( 52)= 'c32',
+ PTRACERS_names( 53)= 'Chl01',
+ PTRACERS_names( 54)= 'Chl02',
+ PTRACERS_names( 55)= 'Chl03',
+ PTRACERS_names( 56)= 'Chl04',
+ PTRACERS_names( 57)= 'Chl05',
+ PTRACERS_names( 58)= 'Chl06',
+ PTRACERS_names( 59)= 'Chl07',
+ PTRACERS_names( 60)= 'Chl08',
+ PTRACERS_names( 61)= 'Chl09',
+ PTRACERS_names( 62)= 'Chl10',
+ PTRACERS_names( 63)= 'Chl11',
+ PTRACERS_names( 64)= 'Chl12',
+ PTRACERS_names( 65)= 'Chl13',
+ PTRACERS_names( 66)= 'Chl14',
+ PTRACERS_names( 67)= 'Chl15',
+ PTRACERS_names( 68)= 'Chl16',
+ PTRACERS_names( 69)= 'Chl17',
+ PTRACERS_names( 70)= 'Chl18',
+ PTRACERS_names( 71)= 'Chl19',
+ PTRACERS_names( 72)= 'Chl20',
+ PTRACERS_names( 73)= 'Chl21',
 #
 # uM is shorthand for mmol m^-3
 #
@@ -131,8 +135,8 @@
  PTRACERS_units( 48)= 'mmol C/m^3'
  PTRACERS_units( 49)= 'mmol C/m^3'
  PTRACERS_units( 50)= 'mmol C/m^3'
- PTRACERS_units( 51)= 'mg Chl a/m^3'
- PTRACERS_units( 52)= 'mg Chl a/m^3'
+ PTRACERS_units( 51)= 'mmol C/m^3'
+ PTRACERS_units( 52)= 'mmol C/m^3'
  PTRACERS_units( 53)= 'mg Chl a/m^3'
  PTRACERS_units( 54)= 'mg Chl a/m^3'
  PTRACERS_units( 55)= 'mg Chl a/m^3'
@@ -150,5 +154,9 @@
  PTRACERS_units( 67)= 'mg Chl a/m^3'
  PTRACERS_units( 68)= 'mg Chl a/m^3'
  PTRACERS_units( 69)= 'mg Chl a/m^3'
+ PTRACERS_units( 70)= 'mg Chl a/m^3'
+ PTRACERS_units( 71)= 'mg Chl a/m^3'
+ PTRACERS_units( 72)= 'mg Chl a/m^3'
+ PTRACERS_units( 73)= 'mg Chl a/m^3'
 #
  &
