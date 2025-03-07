@@ -175,7 +175,7 @@
  darwin_particleabsorbFile='OPTICS_COEFF2/optics_detritus.txt',
  darwin_Sdom=0.0145000,
  darwin_aCDOM_fac = 0.30,
- darwin_part_size_P = 1e-15,
+ darwin_part_size_P = 5e-17,
  darwin_rCDOM = 120.0e-4,
  darwin_RPOC = 2.0,
 
