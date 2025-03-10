@@ -1,0 +1,7 @@
+cp OPTICS_COEFF/optics_water_Aug2014_bandave25.txt OPTICS_COEFF2/optics_water.txt
+[stephdut@node074 ~]$ cp OPTICS_COEFF/optics_detritus_8_sameas4_bandave25.txt OPTICS_COEFF2/optics_detritus.txt
+[stephdut@node074 ~]$ cp OPTICS_COEFF/optics_phyto_10_bandave25_newsize5_diffsyn_zoo_bact3_AHbacteria_ecol.txt OPTICS_COEFF2/optics_phyto.txt
+
+ - optics_phyto.txt additionally changed to have micromonas spectra for pico-euks
+
+ - optics_phyto2.txt reduces size of scatter diatom as small diatoms were scatering the most
