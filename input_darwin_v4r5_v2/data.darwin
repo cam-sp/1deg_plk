@@ -164,14 +164,11 @@
   cdomdegrd= 3.8580e-08,
   CDOMbleach = 1.9329e-06,
   PARCDOM = 60.,
-  R_NP_CDOM  = 16.,
-  R_FeP_CDOM = 1.e-3,
-  R_CP_CDOM  = 120.,
   CDOMcoeff = 0.1750000,
  /
  &DARWIN_RADTRANS_PARAMS
  darwin_waterabsorbFile='OPTICS_COEFF2/optics_water.txt',
- darwin_phytoabsorbFile='OPTICS_COEFF2/optics_plankton_newbbp.txt',
+ darwin_phytoabsorbFile='OPTICS_COEFF2/optics_plankton_newbb.txt',
  darwin_particleabsorbFile='OPTICS_COEFF2/optics_detritus.txt',
  darwin_Sdom=0.0145000,
  darwin_aCDOM_fac = 0.30,
