@@ -157,6 +157,8 @@
  wPIC_sink=0.00017361111111111111,
  SURFDICMIN  =   100.0,
  SURFALKMIN  =   100.0,
+ knita = 1.0,
+ knitb = 1.0,
  /
 ########################
  &DARWIN_CDOM_PARAMS
