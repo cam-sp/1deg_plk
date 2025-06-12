@@ -402,14 +402,6 @@
   filename(173) = 'diags/monthly/RRS/Rirr011',
   filename(174) = 'diags/monthly/RRS/Rirr012',
   filename(175) = 'diags/monthly/RRS/Rirr013',
-#--- 
- frequency(176) = 2635200., 
-  fields(1,176) = 'C_NO2   ', 
-  filename(176) = 'diags/monthly/C_NO2   ', 
-  #--- 
- frequency(177) = 2635200., 
-  fields(1,177) = 'C_NH4   ', 
-  filename(177) = 'diags/monthly/C_NH4   ', 
   
  & 
  
