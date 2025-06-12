@@ -1645,7 +1645,7 @@ C to DIC as if it had never been synthesized.
 
       gTr(iDIC) = gTr(iDIC) + respir
 #ifndef DARWIN_ALLOW_NQUOTA
-      gTr(iNO3) = gTr(iNO3) + respirN
+      gTr(iNH4) = gTr(iNH4) + respirN
 #endif
 #ifndef DARWIN_ALLOW_PQUOTA
       gTr(iPO4) = gTr(iPO4) + respirP
