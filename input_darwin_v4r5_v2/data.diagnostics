@@ -332,6 +332,8 @@
   filename(138) = 'diags/monthly/IOPS/aplk012',
   filename(139) = 'diags/monthly/IOPS/aplk013',
  
+#--- 
+ frequency(140:160) = 21*2635200., 
   fields(1,140) = 'fnut0001  ',
   fields(1,141) = 'fnut0002  ',
   fields(1,142) = 'fnut0003  ',
@@ -376,6 +378,8 @@
   filename(159)= 'diags/monthly/fnut20',
   filename(160)= 'diags/monthly/fnut21',
  
+#--- 
+ frequency(161:181) = 21*2635200., 
   fields(1,161) = 'fIph0001  ',
   fields(1,162) = 'fIph0002  ',
   fields(1,163) = 'fIph0003  ',
@@ -420,6 +424,8 @@
   filename(180)= 'diags/monthly/fIph20',
   filename(181)= 'diags/monthly/fIph21',
  
+#--- 
+ frequency(182:202) = 21*2635200., 
   fields(1,182) = 'fTph0001  ',
   fields(1,183) = 'fTph0002  ',
   fields(1,184) = 'fTph0003  ',
