@@ -1539,10 +1539,9 @@ C==== Mortality and parameterized exudation ============================
         exude_POC=exude_POC+    ExportFracMort(jp)  *mortX*Qctot(jp)
      &                     +    ExportFracMort2(jp) *mortX2*Qctot(jp)
 #else
-        exude_DOC = exude_DOC + (1.-ExportFracMort(jp)) *mortX
-     &                        + (1.-ExportFracMort2(jp))*mortX2
-        exude_POC = exude_POC +     ExportFracMort(jp)  *mortX
-     &                        +     ExportFracMort2(jp) *mortX2
+        exude_DOC = exude_DOC + (1.-ExportFracMort2(jp))*mortX2
+        exude_POC = exude_POC +     ExportFracMort2(jp) *mortX2
+        respir = respir + mortX
 #endif
 
         exude_DON = exude_DON + (1.-ExportFracMort(jp)) *mortX *Qn(jp)
