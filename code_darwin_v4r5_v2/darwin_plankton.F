@@ -668,9 +668,9 @@ C a la quota
 
 C       carbon-specific growth rate
         IF (PCm .GT. 0.0 .AND. PARtot .GT. PARmin) THEN
-          PC = PCm*(1-EXP(-alpha_I_growth*chl2c/PCm))
+          limitI = 1 _d 0 - EXP(-alpha_I_growth*chl2c/PCm)
         ELSE
-          PC = 0.0 _d 0
+          limitI = 0 _d 0
         ENDIF
 
         IF (inhibGeider(j) .GT. 0.0) THEN
@@ -679,9 +679,11 @@ C         "total" PAR:
           Ek = PCm/(chl2c*alpha_mean(j))
           IF (tmp .GT. Ek) THEN
             EkoverE = Ek / tmp
-            PC = PC*EkoverE*inhibGeider(j)
+            limitI = limitI*EkoverE*inhibGeider(j)
           ENDIF
         ENDIF
+
+        PC = PCm*limitI
 
 #else /* not DARWIN_ALLOW_GEIDER */
 
