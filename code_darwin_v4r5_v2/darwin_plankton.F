@@ -806,6 +806,11 @@ C==== Nutrient consumption =============================================
 #ifdef DARWIN_DIAG_PERTYPE
         diags(iPPplank+j-1) = diags(iPPplank+j-1) + uptakeDIC
         diags(iPCplank+j-1) = diags(iPCplank+j-1) + PC
+C  which nutrient is limiting growth?
+        IF (limitnut==limitn) diags(ilimN+j-1) = 1 _d 0
+        IF (limitnut==limitp) diags(ilimP+j-1) = 1 _d 0
+        IF (limitnut==limitfe) diags(ilimF+j-1) = 1 _d 0
+        IF (limitnut==limitsi) diags(ilimS+j-1) = 1 _d 0
 C factors that go into growth equation
         diags(ifIph+j-1) = limitI
         diags(ifTph+j-1) = photoTempFunc(j)
