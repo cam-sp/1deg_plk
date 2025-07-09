@@ -1128,6 +1128,9 @@ c NH4 -> NO2 -> NO3 by bacterial action, parameterized
         prodNO3 = prodNO3*MAX(0.0, 1.0 - PARtot/PAR_oxi)
       ENDIF
 
+      diags(iConsSi)  = prodNO2
+      diags(iConsFe)  = prodNO3
+
 C==== CDOM =============================================================
 #ifdef DARWIN_ALLOW_CDOM
 # ifdef DARWIN_CDOM_UNITS_CARBON
@@ -1253,8 +1256,6 @@ C     DOC is created by #4 PA-assoc solubilization and consumed by #5
       diags(iConsNO2) = consumNO2
       diags(iConsNH4) = consumNH4
       diags(iConsPO4) = consumPO4
-      diags(iConsSi)  = consumSiO2
-      diags(iConsFe)  = consumFeT
 
 C=======================================================================
 C==== Grazing ==========================================================

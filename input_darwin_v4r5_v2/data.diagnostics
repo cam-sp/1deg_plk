@@ -198,12 +198,12 @@
   filename(81) = 'diags/monthly/Denit   ', 
 #--- 
  frequency(82) = 2635200., 
-  fields(1,82) = 'S_NO3   ', 
-  filename(82) = 'diags/monthly/S_NO3   ', 
+  fields(1,82) = 'C_Si   ', 
+  filename(82) = 'diags/monthly/prodNO2   ', 
 #--- 
  frequency(83) = 2635200., 
-  fields(1,83) = 'S_NH4   ', 
-  filename(83) = 'diags/monthly/S_NH4   ', 
+  fields(1,83) = 'C_Fe   ', 
+  filename(83) = 'diags/monthly/prodNO3   ', 
 #--- 
  frequency(84) = 2635200., 
   fields(1,84) = 'rDIC_DOC', 
