@@ -816,6 +816,69 @@ C-      use units & names from data.ptracers :
       CALL DIAGNOSTICS_ADDTOLIST( diagNum,
      I           diagName, diagCode, diagUnits, diagTitle, 0, myThid )
 
+      WRITE(diagName,'(A)')'prodNO2'
+      WRITE(diagTitle,'(A)')'production of nitrite'
+      diagUnits = 'mmol N/m3/s     '
+      diagCode  = 'SMR     MR      '
+      CALL DIAGNOSTICS_ADDTOLIST( diagNum,
+     I           diagName, diagCode, diagUnits, diagTitle, 0, myThid )
+
+      WRITE(diagName,'(A)')'prodNO3'
+      WRITE(diagTitle,'(A)')'Nitrification'
+      diagUnits = 'mmol N/m3/s     '
+      diagCode  = 'SMR     MR      '
+      CALL DIAGNOSTICS_ADDTOLIST( diagNum,
+     I           diagName, diagCode, diagUnits, diagTitle, 0, myThid )
+
+      WRITE(diagName,'(A)')'limN_avg'
+      WRITE(diagTitle,'(A)')'Community-averaged N limitation'
+      diagUnits = ' -     '
+      diagCode  = 'SMR     MR      '
+      CALL DIAGNOSTICS_ADDTOLIST( diagNum,
+     I           diagName, diagCode, diagUnits, diagTitle, 0, myThid )
+
+      WRITE(diagName,'(A)')'limP_avg'
+      WRITE(diagTitle,'(A)')'Community-averaged P limitation'
+      diagUnits = ' -     '
+      diagCode  = 'SMR     MR      '
+      CALL DIAGNOSTICS_ADDTOLIST( diagNum,
+     I           diagName, diagCode, diagUnits, diagTitle, 0, myThid )
+
+      WRITE(diagName,'(A)')'limF_avg'
+      WRITE(diagTitle,'(A)')'Community-averaged Fe limitation'
+      diagUnits = ' -     '
+      diagCode  = 'SMR     MR      '
+      CALL DIAGNOSTICS_ADDTOLIST( diagNum,
+     I           diagName, diagCode, diagUnits, diagTitle, 0, myThid )
+
+      WRITE(diagName,'(A)')'limS_avg'
+      WRITE(diagTitle,'(A)')'Community-averaged Si limitation'
+      diagUnits = ' -     '
+      diagCode  = 'SMR     MR      '
+      CALL DIAGNOSTICS_ADDTOLIST( diagNum,
+     I           diagName, diagCode, diagUnits, diagTitle, 0, myThid )
+
+      WRITE(diagName,'(A)')'fIph_avg'
+      WRITE(diagTitle,'(A)')'Community-averaged light growth factor'
+      diagUnits = ' -     '
+      diagCode  = 'SMR     MR      '
+      CALL DIAGNOSTICS_ADDTOLIST( diagNum,
+     I           diagName, diagCode, diagUnits, diagTitle, 0, myThid )
+
+      WRITE(diagName,'(A)')'fTph_avg'
+      WRITE(diagTitle,'(A)')'Community-averaged temp growth factor'
+      diagUnits = ' -     '
+      diagCode  = 'SMR     MR      '
+      CALL DIAGNOSTICS_ADDTOLIST( diagNum,
+     I           diagName, diagCode, diagUnits, diagTitle, 0, myThid )
+
+      WRITE(diagName,'(A)')'fnut_avg'
+      WRITE(diagTitle,'(A)')'Community-averaged nutrients growth factor'
+      diagUnits = ' -     '
+      diagCode  = 'SMR     MR      '
+      CALL DIAGNOSTICS_ADDTOLIST( diagNum,
+     I           diagName, diagCode, diagUnits, diagTitle, 0, myThid )
+
 # ifdef DARWIN_ALLOW_RADI
       WRITE(diagName,'(A)')'DICFsed '
       WRITE(diagTitle,'(A)')'DIC sediment flux'
@@ -1017,4 +1080,3 @@ C-      use units & names from data.ptracers :
 
       RETURN
       END
-

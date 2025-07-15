@@ -148,6 +148,14 @@ c !LOCAL VARIABLES: ====================================================
       _RL consumPO4
       _RL consumSiO2
       _RL consumFeT
+      _RL limN_sum
+      _RL limP_sum
+      _RL limF_sum
+      _RL limS_sum
+      _RL fIph_sum
+      _RL fTph_sum
+      _RL fnut_sum
+      _RL X_photo
 
       _RL uptakePON
       _RL uptakePOP
@@ -439,6 +447,14 @@ C==== Initialize accumulators ==========================================
       prodNO2 = 0.0
       prodNO3 = 0.0
       respir = 0.0 _d 0
+      limN_sum = 0.0 _d 0
+      limP_sum = 0.0 _d 0
+      limF_sum = 0.0 _d 0
+      limS_sum = 0.0 _d 0
+      fIph_sum = 0.0 _d 0
+      fTph_sum = 0.0 _d 0
+      fnut_sum = 0.0 _d 0
+      X_photo = 0.0 _d 0
 #ifdef DARWIN_ALLOW_CSTORE
       excC = 0.0
 #endif
@@ -809,14 +825,29 @@ C==== Nutrient consumption =============================================
         diags(iPPplank+j-1) = diags(iPPplank+j-1) + uptakeDIC
         diags(iPCplank+j-1) = diags(iPCplank+j-1) + PC
 C  which nutrient is limiting growth?
-        IF (limitnut==limitn) diags(ilimN+j-1) = 1 _d 0
-        IF (limitnut==limitp) diags(ilimP+j-1) = 1 _d 0
-        IF (limitnut==limitfe) diags(ilimF+j-1) = 1 _d 0
-        IF (limitnut==limitsi) diags(ilimS+j-1) = 1 _d 0
+        IF (limitnut==limitn) THEN
+         diags(ilimN+j-1) = 1 _d 0
+         limN_sum = limN_sum + X(j)
+        ENDIF
+        IF (limitnut==limitp)  THEN
+         diags(ilimP+j-1) = 1 _d 0
+         limP_sum = limP_sum + X(j)
+        ENDIF
+        IF (limitnut==limitfe)  THEN
+         diags(ilimF+j-1) = 1 _d 0
+         limF_sum = limF_sum + X(j)
+        ENDIF
+        IF (limitnut==limitsi)  THEN
+         diags(ilimS+j-1) = 1 _d 0
+         limS_sum = limS_sum + X(j)
+        ENDIF
 C factors that go into growth equation
         diags(ifIph+j-1) = limitI
+        fIph_sum = fIph_sum + limitI * X(j)
         diags(ifTph+j-1) = photoTempFunc(j)
+        fTph_sum = fTph_sum + photoTempFunc(j) * X(j)
         diags(ifnut+j-1) = limitnut
+        fnut_sum = fnut_sum + limitnut * X(j)
 #endif
         IF (diazo(j) .GT. 0.0 _d 0) THEN
          diags(iNfix)=diags(iNfix)+uptakeN-uptakeNH4-uptakeNO2-uptakeNO3
@@ -875,13 +906,20 @@ C==== Apply phototrophy tendencies =====================================
      &     uptakeFeT
         ENDIF
 #endif
-
+        X_photo = X_photo + X(j)
 C      isPhoto(j)
        ENDIF
 C     j
       ENDDO
 
       diags(iConsNO3) = consumNO3
+      diags(ilimNavg) = limN_sum / X_photo
+      diags(ilimPavg) = limP_sum / X_photo
+      diags(ilimFavg) = limF_sum / X_photo
+      diags(ilimSavg) = limS_sum / X_photo
+      diags(ifIphavg) = fIph_sum / X_photo
+      diags(ifTphavg) = fTph_sum / X_photo
+      diags(ifnutavg) = fnut_sum / X_photo
 
 C=======================================================================
 C==== Bacteria =========================================================
@@ -1128,8 +1166,8 @@ c NH4 -> NO2 -> NO3 by bacterial action, parameterized
         prodNO3 = prodNO3*MAX(0.0, 1.0 - PARtot/PAR_oxi)
       ENDIF
 
-      diags(iConsSi)  = prodNO2
-      diags(iConsFe)  = prodNO3
+      diags(iProdNO2) = prodNO2
+      diags(iProdNO3) = prodNO3
 
 C==== CDOM =============================================================
 #ifdef DARWIN_ALLOW_CDOM
@@ -1256,6 +1294,8 @@ C     DOC is created by #4 PA-assoc solubilization and consumed by #5
       diags(iConsNO2) = consumNO2
       diags(iConsNH4) = consumNH4
       diags(iConsPO4) = consumPO4
+      diags(iConsSi)  = consumSiO2
+      diags(iConsFe)  = consumFeT
 
 C=======================================================================
 C==== Grazing ==========================================================

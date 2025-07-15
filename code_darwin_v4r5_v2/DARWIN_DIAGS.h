@@ -36,6 +36,15 @@ C Contains indices into diagnostics array
       integer iGrGC
       integer iHPplank
       integer iHCplank
+      integer iProdNO2
+      integer iProdNO3
+      integer ilimNavg
+      integer ilimPavg
+      integer ilimFavg
+      integer ilimSavg
+      integer ifIphavg
+      integer ifTphavg
+      integer ifnutavg
 #ifdef DARWIN_DIAG_PERTYPE
       integer iMort
       integer iResp
@@ -88,8 +97,17 @@ C Contains indices into diagnostics array
       PARAMETER(iSrcAlk= 19)
       PARAMETER(iConsO2= 20)
       PARAMETER(iProdO2= 21)
+      PARAMETER(iProdNO2= 22)
+      PARAMETER(iProdNO3= 23)
+      PARAMETER(ilimNavg= 24)
+      PARAMETER(ilimPavg= 25)
+      PARAMETER(ilimFavg= 26)
+      PARAMETER(ilimSavg= 27)
+      PARAMETER(ifIphavg= 28)
+      PARAMETER(ifTphavg= 29)
+      PARAMETER(ifnutavg= 30)
 #ifdef DARWIN_ALLOW_CSTORE
-      PARAMETER(iEX=  22)
+      PARAMETER(iEX=  31)
       PARAMETER(iGW=  iEX+1)
       PARAMETER(iDN=  iGW+1)
       PARAMETER(iDP=  iDN+1)
@@ -109,7 +127,7 @@ C Contains indices into diagnostics array
       PARAMETER(iPPplank=iDmin+1)
 # endif
 #else
-      PARAMETER(iPPplank=22)
+      PARAMETER(iPPplank=31)
 #endif
 #ifdef DARWIN_DIAG_PERTYPE
       PARAMETER(iPCplank=iPPplank+nplank)
