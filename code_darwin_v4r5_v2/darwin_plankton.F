@@ -913,13 +913,22 @@ C     j
       ENDDO
 
       diags(iConsNO3) = consumNO3
-      diags(ilimNavg) = limN_sum / X_photo
-      diags(ilimPavg) = limP_sum / X_photo
-      diags(ilimFavg) = limF_sum / X_photo
-      diags(ilimSavg) = limS_sum / X_photo
-      diags(ifIphavg) = fIph_sum / X_photo
-      diags(ifTphavg) = fTph_sum / X_photo
-      diags(ifnutavg) = fnut_sum / X_photo
+
+      limN_sum = limN_sum / X_photo
+      limP_sum = limP_sum / X_photo
+      limF_sum = limF_sum / X_photo
+      limS_sum = limS_sum / X_photo
+      fIph_sum = fIph_sum / X_photo
+      fTph_sum = fTph_sum / X_photo
+      fnut_sum = fnut_sum / X_photo
+
+      diags(ilimNavg) = limN_sum
+      diags(ilimPavg) = limP_sum
+      diags(ilimFavg) = limF_sum
+      diags(ilimSavg) = limS_sum
+      diags(ifIphavg) = fIph_sum
+      diags(ifTphavg) = fTph_sum
+      diags(ifnutavg) = fnut_sum
 
 C=======================================================================
 C==== Bacteria =========================================================
@@ -1161,9 +1170,15 @@ C==== Nitrogen chemistry ===============================================
 c NH4 -> NO2 -> NO3 by bacterial action, parameterized
       prodNO2 = knita*NH4
       prodNO3 = knitb*NO2
-      IF (PAR_oxi .NE. 0.0 _d 0) THEN
-        prodNO2 = prodNO2*MAX(0.0, 1.0 - PARtot/PAR_oxi)
-        prodNO3 = prodNO3*MAX(0.0, 1.0 - PARtot/PAR_oxi)
+      IF (fIph_sum .GT. 0.1 _d 0) THEN
+        prodNO2 = prodNO2*MIN(1.0 _d 0, fnut_sum/fIph_sum/2.0 _d 0)
+     &                   *(1.0 _d 0-limN_sum)*(1 _d 0-limP_sum)
+     &                   *(1.0 _d 0-fIph_sum)
+     &                   *MIN(1.0 _d 0, O2/20.0 _d 0)
+        prodNO3 = prodNO3*MIN(1.0 _d 0, fnut_sum/fIph_sum/2.0 _d 0)
+     &                   *(1.0 _d 0-limN_sum)*(1 _d 0-limP_sum)
+     &                   *(1.0 _d 0-fIph_sum)
+     &                   *MIN(1.0 _d 0, O2/20.0 _d 0)
       ENDIF
 
       diags(iProdNO2) = prodNO2
