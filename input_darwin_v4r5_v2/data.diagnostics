@@ -407,6 +407,11 @@
  
   filename(157)= 'diags/monthly/HP31',
   filename(158)= 'diags/monthly/HP32',
+
+#--- 
+ frequency(158) = 2635200., 
+  fields(1,158) = 'SALT   ', 
+  filename(158) = 'diags/monthly/SALT   ', 
  
 #--- 
   
