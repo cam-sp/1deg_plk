@@ -289,7 +289,7 @@
   filename(100) = 'diags/monthly/RRS/Rirr001',
   filename(101) = 'diags/monthly/RRS/Rirr002',
   filename(102) = 'diags/monthly/RRS/Rirr003',
-  filename(113) = 'diags/monthly/RRS/Rirr004',
+  filename(103) = 'diags/monthly/RRS/Rirr004',
   filename(104) = 'diags/monthly/RRS/Rirr005',
   filename(105) = 'diags/monthly/RRS/Rirr006',
   filename(106) = 'diags/monthly/RRS/Rirr007',
