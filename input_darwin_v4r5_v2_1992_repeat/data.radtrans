@@ -26,7 +26,7 @@
  RT_EsFile(11)='../../other_files/radtrans_files/edsEs11',
  RT_EsFile(12)='../../other_files/radtrans_files/edsEs12',
  RT_EsFile(13)='../../other_files/radtrans_files/edsEs13',
- RT_E_period= -1.,
+ RT_E_period= -12.,
  
  RT_inscal_Ed(1) = 1,
  RT_inscal_Ed(2) = 1,

@@ -98,11 +98,6 @@
  nTimeSteps=280498,
 #60 years
 #nTimeSteps=525985,
-#
- periodicExternalForcing = .TRUE.
- externForcingCycle      = 31536000.   ! or however long 1992 is in model seconds
- externForcingPeriod     = 2592000.    ! e.g. monthly
-#
  forcing_In_AB=.FALSE.,
  momDissip_In_AB=.FALSE.,
 #when using the cd scheme:
