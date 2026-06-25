@@ -269,37 +269,6 @@
   filename(98)= 'diags/monthly/HP31',
   filename(99)= 'diags/monthly/HP32',
 
-#--- 
- frequency(100:112) = 13*2635200., 
-  levels(1,100:112) = 13*1., 
-  
-  fields(1,100) = 'Rirr001  ',
-  fields(1,101) = 'Rirr002  ',
-  fields(1,102) = 'Rirr003  ',
-  fields(1,103) = 'Rirr004  ',
-  fields(1,104) = 'Rirr005  ',
-  fields(1,105) = 'Rirr006  ',
-  fields(1,106) = 'Rirr007  ',
-  fields(1,107) = 'Rirr008  ',
-  fields(1,108) = 'Rirr009  ',
-  fields(1,109) = 'Rirr010  ',
-  fields(1,110) = 'Rirr011  ',
-  fields(1,111) = 'Rirr012  ',
-  fields(1,112) = 'Rirr013  ',
-  filename(100) = 'diags/monthly/RRS/Rirr001',
-  filename(101) = 'diags/monthly/RRS/Rirr002',
-  filename(102) = 'diags/monthly/RRS/Rirr003',
-  filename(103) = 'diags/monthly/RRS/Rirr004',
-  filename(104) = 'diags/monthly/RRS/Rirr005',
-  filename(105) = 'diags/monthly/RRS/Rirr006',
-  filename(106) = 'diags/monthly/RRS/Rirr007',
-  filename(107) = 'diags/monthly/RRS/Rirr008',
-  filename(108) = 'diags/monthly/RRS/Rirr009',
-  filename(109) = 'diags/monthly/RRS/Rirr010',
-  filename(110) = 'diags/monthly/RRS/Rirr011',
-  filename(111) = 'diags/monthly/RRS/Rirr012',
-  filename(112) = 'diags/monthly/RRS/Rirr013',
-#--- 
   
  & 
  
