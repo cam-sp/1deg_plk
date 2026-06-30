@@ -63,7 +63,7 @@
  readBinaryPrec=32,
  writeBinaryPrec=32,
  selectAddFluid=1,
- debugLevel=-1,
+ debugLevel=1,
  /
 
 # Elliptic solver parameters
