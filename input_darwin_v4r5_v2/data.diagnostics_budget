@@ -1,0 +1,78 @@
+# Diagnostic Package Choices
+#-----------------
+# NO3 (TRAC02) + SiO2 (TRAC07) BUDGET, upper ~1000 m, LLC90
+#   Budget streams: 30-day means (2592000 s) + snapshots with the SAME
+#   period and phase, so each averaging window starts and ends on a
+#   snapshot -> budget closes between snapshots.
+#   To switch to daily: change every 2592000. -> 86400. (and -2592000.)
+#   Box = levels 1-29 (0-1056.3 m). Vertical fluxes (ADVr, DFrI, DFrE)
+#   sit on the TOP face of each cell, so transport lists go to level 30:
+#   level 30 = flux through the bottom of the box.
+#   GGL90 mixing (no KPP) -> no KPPgTr; GGL90 mixing is inside DFrI.
+#   GMRedi on -> DFxE/DFyE/DFrE carry Redi (+GM skew) fluxes; keep them.
+#   Discard the first (partial) window after a restart.
+#--------------------------------------------------------------------
+#
+ &diagnostics_list
+#
+ dumpatlast = .FALSE.,
+#
+#--- 1: NO3 transport (mmol N/s through cell faces)
+#   ADVx/ADVy: lateral advective flux (west/south faces)
+#   ADVr     : vertical advective flux (top face, positive up)
+#   DFxE/DFyE: lateral explicit diffusive flux (GM/Redi)
+#   DFrE     : explicit vertical diffusive flux (Redi off-diagonal)
+#   DFrI     : implicit vertical diffusion (background + GGL90 + Redi K33)
+ frequency(1) = 2592000.,
+ timePhase(1) = 0.,
+  levels(1:30,1) = 1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.,13.,14.,15.,16.,17.,18.,19.,20.,21.,22.,23.,24.,25.,26.,27.,28.,29.,30.,
+  fields(1:7,1) = 'ADVxTr02','ADVyTr02','ADVrTr02',
+                  'DFxETr02','DFyETr02','DFrETr02','DFrITr02',
+  filename(1) = 'diags/budget/budNO3',
+#--- 2: SiO2 transport (mmol Si/s through cell faces)
+ frequency(2) = 2592000.,
+ timePhase(2) = 0.,
+  levels(1:30,2) = 1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.,13.,14.,15.,16.,17.,18.,19.,20.,21.,22.,23.,24.,25.,26.,27.,28.,29.,30.,
+  fields(1:7,2) = 'ADVxTr07','ADVyTr07','ADVrTr07',
+                  'DFxETr07','DFyETr07','DFrETr07','DFrITr07',
+  filename(2) = 'diags/budget/budSi',
+#--- 3: Darwin N source/sink terms (mmol N/m3/s)
+#   C_NO3: NO3 uptake        S_NO3: NO3 source (nitrification)
+#   C_DIN: DIN uptake        S_DIN: DIN source (remineralization)
+#   gDAR02: total Darwin NO3 tendency (closure check vs S_NO3 - C_NO3)
+ frequency(3) = 2592000.,
+ timePhase(3) = 0.,
+  levels(1:29,3) = 1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.,13.,14.,15.,16.,17.,18.,19.,20.,21.,22.,23.,24.,25.,26.,27.,28.,29.,
+  fields(1:5,3) = 'C_NO3   ','S_NO3   ','C_DIN   ','S_DIN   ','gDAR02  ',
+  filename(3) = 'diags/budget/darN',
+#--- 4: Darwin Si source/sink terms (mmol Si/m3/s)
+#   C_Si  : SiO2 uptake          S_Si: POSi dissolution + respirSi
+#   gDAR07: total Darwin SiO2 tendency (closure check vs S_Si - C_Si)
+ frequency(4) = 2592000.,
+ timePhase(4) = 0.,
+  levels(1:29,4) = 1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.,13.,14.,15.,16.,17.,18.,19.,20.,21.,22.,23.,24.,25.,26.,27.,28.,29.,
+  fields(1:3,4) = 'C_Si    ','S_Si    ','gDAR07  ',
+  filename(4) = 'diags/budget/darSi',
+#--- 5: NO3 + SiO2 snapshots at window boundaries (storage term)
+ frequency(5) = -2592000.,
+ timePhase(5) = 0.,
+  levels(1:29,5) = 1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.,13.,14.,15.,16.,17.,18.,19.,20.,21.,22.,23.,24.,25.,26.,27.,28.,29.,
+  fields(1:2,5) = 'TRAC02  ','TRAC07  ',
+  filename(5) = 'diags/budget/snapNut',
+#--- 6: ETAN snapshot (cell volumes; with z* all levels scale by (H+eta)/H)
+ frequency(6) = -2592000.,
+ timePhase(6) = 0.,
+  fields(1,6) = 'ETAN    ',
+  filename(6) = 'diags/budget/snapETAN',
+#--- 7: surface E/P/runoff tendencies (2-D, level 1 only)
+ frequency(7) = 2592000.,
+ timePhase(7) = 0.,
+  fields(1:2,7) = 'gNO3Epr ','gSiO2Epr',
+  filename(7) = 'diags/budget/eprNut',
+#---
+ &
+
+# Parameter for Diagnostics of per level statistics:
+#-----------------
+ &DIAG_STATIS_PARMS
+ &
