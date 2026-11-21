@@ -1175,18 +1175,26 @@ C      Keir 1980
 
 C==== Nitrogen chemistry ===============================================
 c NH4 -> NO2 -> NO3 by bacterial action, parameterized
+C R2 test: original darwin3 nitrification (light inhibition via PAR_oxi).
+C The modified version used in the default runs is kept below, commented.
       prodNO2 = knita*NH4
       prodNO3 = knitb*NO2
-      IF (fIph_sum .GT. 0.1 _d 0) THEN
-        prodNO2 = prodNO2*MIN(1.0 _d 0, fnut_sum/fIph_sum/2.0 _d 0)
-     &                   *(1.0 _d 0-limN_sum)*(1 _d 0-limP_sum)
-     &                   *(1.0 _d 0-fIph_sum)
-     &                   *MIN(1.0 _d 0, O2/20.0 _d 0)
-        prodNO3 = prodNO3*MIN(1.0 _d 0, fnut_sum/fIph_sum/2.0 _d 0)
-     &                   *(1.0 _d 0-limN_sum)*(1 _d 0-limP_sum)
-     &                   *(1.0 _d 0-fIph_sum)
-     &                   *MIN(1.0 _d 0, O2/20.0 _d 0)
+      IF (PAR_oxi .NE. 0.0 _d 0) THEN
+        prodNO2 = prodNO2*MAX(0.0 _d 0, 1.0 _d 0 - PARtot/PAR_oxi)
+        prodNO3 = prodNO3*MAX(0.0 _d 0, 1.0 _d 0 - PARtot/PAR_oxi)
       ENDIF
+C --- modified nitrification (default runs) ---------------------------
+C     IF (fIph_sum .GT. 0.1 _d 0) THEN
+C       prodNO2 = prodNO2*MIN(1.0 _d 0, fnut_sum/fIph_sum/2.0 _d 0)
+C    &                   *(1.0 _d 0-limN_sum)*(1 _d 0-limP_sum)
+C    &                   *(1.0 _d 0-fIph_sum)
+C    &                   *MIN(1.0 _d 0, O2/20.0 _d 0)
+C       prodNO3 = prodNO3*MIN(1.0 _d 0, fnut_sum/fIph_sum/2.0 _d 0)
+C    &                   *(1.0 _d 0-limN_sum)*(1 _d 0-limP_sum)
+C    &                   *(1.0 _d 0-fIph_sum)
+C    &                   *MIN(1.0 _d 0, O2/20.0 _d 0)
+C     ENDIF
+C ---------------------------------------------------------------------
 
       diags(iProdNO2) = prodNO2
       diags(iProdNO3) = prodNO3
