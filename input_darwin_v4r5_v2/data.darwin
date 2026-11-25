@@ -264,7 +264,9 @@
  a_R_NC(:)= 4*0.13333333333333333, 2*0.1333333333333333, 4*0.13333333333333333,
  a_R_SiC(:)= 6*0., 0.39999999999999999, 3*0.,
  a_kgrazesat(:)= 8*10.0, 1*10.0,
- b_kgrazesat(:)= 9*0,
+ b_kgrazesat(:)= 9*-0.1,
+# R1/R5: weaker ammonium inhibition of nitrate uptake (default 4.6)
+ a_amminhib(:)= 10*1.5,
 #
  grp_ass_eff(:,:)=100*0.32,
  /
